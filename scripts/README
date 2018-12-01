@@ -1,0 +1,11 @@
+look at hydrophone_bridge.py for hostnames and other stuff
+
+change made to address socket error in data_receiver.py:
+added line to /etc/sysctl.conf:
+net.ipv4.ip_nonlocal_bind = 1
+
+run "service procps start" after making changes to sysctl.conf
+
+https://stackoverflow.com/questions/27014955/socket-connect-vs-bind
+
+try changing hostname from cobalt's ip to vm's ip
