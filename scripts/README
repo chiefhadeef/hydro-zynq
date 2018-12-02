@@ -9,3 +9,9 @@ run "service procps start" after making changes to sysctl.conf
 https://stackoverflow.com/questions/27014955/socket-connect-vs-bind
 
 try changing hostname from cobalt's ip to vm's ip
+
+problem on sub:
+data_receiver.py stuck on line 97 (receiving data)
+
+when running the data_receiver.py,
+try using --output to specify an output file

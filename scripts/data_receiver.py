@@ -75,11 +75,13 @@ def write_to_csv(packets, filename):
 
 
 if __name__ == '__main__':
+    #arguments that can be used in cmd line when launching script
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=str, help='Specifies output file name')
     parser.add_argument('--hostname', type=str, default='192.168.0.2', help='Specifies the hostname to bind to')
     args = parser.parse_args()
 
+    #socket to receive data
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind((args.hostname, 3001))
 
@@ -94,6 +96,7 @@ if __name__ == '__main__':
 
     bar = progressbar.ProgressBar(max_value=progressbar.UnknownLength)
     while True:
+        #recvfrom returns data and address of socket sending data
         data, addr = sock.recvfrom(8 * 3000 + 4)
 
         packet = Packet(data);
